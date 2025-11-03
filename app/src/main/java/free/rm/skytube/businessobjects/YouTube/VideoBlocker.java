@@ -88,9 +88,12 @@ public class VideoBlocker {
 		}
 
 		List<CardData>      filteredVideosList    = new ArrayList<>();
-		final boolean       isChannelBlacklistEnabled = settings.isChannelDenyListEnabled();
-		final List<ChannelId>  blacklistedChannelIds = isChannelBlacklistEnabled  ? ChannelFilteringDb.getChannelFilteringDb().getDeniedChannelsIdsList() : null;
-		final List<ChannelId>  whitelistedChannelIds = !isChannelBlacklistEnabled ? ChannelFilteringDb.getChannelFilteringDb().getAllowedChannelsIdsList() : null;
+		// Force whitelist mode and hardcode one test channel
+final boolean isChannelBlacklistEnabled = false;
+final List<ChannelId> whitelistedChannelIds = Arrays.asList(
+    new ChannelId("UC_x5XG1OV2P6uZZ5FSM9Ttw") // Google Developers
+);
+final List<ChannelId> blacklistedChannelIds = null;
 		// set of user's preferred ISO 639 language codes (regex)
 		final Set<String>   preferredLanguages    = SkyTubeApp.getPreferenceManager().getStringSet(getStr(R.string.pref_key_preferred_languages), defaultPrefLanguages);
 		final BigInteger    minimumVideoViews     = getViewsFilteringValue();
