@@ -16,7 +16,7 @@
         android:required="false" />
 
     <application
-        android:name=".app.SkyTubeApp"
+        android:name=".app.TehorLy"
         android:allowBackup="true"
         android:hardwareAccelerated="true"
         android:icon="@mipmap/ic_launcher"
